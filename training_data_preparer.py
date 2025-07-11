@@ -42,19 +42,15 @@ def get_training_data(time_range='-48h'):
 
     print(f"Found {len(df)} data points.")
     
-    # --- THIS IS THE FIX ---
-    # 1. Handle missing values while the data is still 2D
     df = df.dropna()
     if df.empty:
         print("No usable data after dropping missing values.")
         return None, None
 
-    # 2. Scale all three features
     features_to_scale = ['packet_size', 'protocol', 'dport']
     scaler = MinMaxScaler(feature_range=(0, 1))
     scaled_features = scaler.fit_transform(df[features_to_scale])
     
-    # 3. Create sequences from the clean, scaled 2D data
     time_steps = 10
     sequences = create_sequences(scaled_features, time_steps)
     

@@ -11,7 +11,7 @@ def build_and_train_model(X_train):
         return
 
     timesteps = X_train.shape[1]
-    n_features = X_train.shape[2] # This will now be > 1
+    n_features = X_train.shape[2]
     
     # Define the model architecture
     model = Sequential([
@@ -37,7 +37,6 @@ def build_and_train_model(X_train):
 
 if __name__ == '__main__':
     try:
-        # MODIFIED: Load the new multi-feature data file
         training_data = np.load('data/multi_feature_sequences.npy')
         build_and_train_model(training_data)
     except FileNotFoundError:

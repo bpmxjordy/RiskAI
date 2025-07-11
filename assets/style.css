@@ -1,0 +1,82 @@
+/* assets/style.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes shimmer-effect {
+    0% { background-position: -500px 0; }
+    100% { background-position: 500px 0; }
+    0% { background-position: -500px 0; }
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: #e2e8f0;
+    background: #0f172a;
+    background-attachment: fixed;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.card-style {
+    background: rgba(30, 41, 59, 0.4);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.card-style:hover {
+    box-shadow: 0 8px 32px rgba(0, 136, 255, 0.2);
+    transform: translateY(-5px);
+}
+
+.table.table-dark {
+    --bs-table-bg: transparent;
+    --bs-table-border-color: rgba(255, 255, 255, 0.1);
+}
+
+.table-shimmer tr {
+    transition: background-color 0.3s ease;
+}
+
+.table-shimmer tr:hover {
+    background-color: transparent !important;
+    background-image: linear-gradient(to right, transparent 0%, rgba(255, 255, 255, 0.05) 50%, transparent 100%);
+    animation: shimmer-effect 1.5s infinite;
+}
+
+.Select-control {
+    background-color: rgba(0, 0, 0, 0.3) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.Select-value-label, .Select-placeholder {
+    color: white !important;
+}
+
+.Select-menu-outer {
+    background-color: #1e293b !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    z-index: 1001 !important;
+}
+
+.Select-option {
+    background-color: #1e293b !important;
+    color: #e2e8f0 !important;
+}
+
+.Select-option.is-focused {
+    background-color: #0074D9 !important;
+    color: white !important;
+}
+
+.cytoscape-container {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    background: rgba(30, 41, 59, 0.4);
+}
