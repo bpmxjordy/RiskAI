@@ -38,7 +38,7 @@ def update_history_table(start_date, end_date, ip_filter, country_filter):
         {range_stop_filter}
         |> filter(fn: (r) => r["_measurement"] == "detected_anomaly")
         |> pivot(rowKey:["_time"], columnKey: ["_field"], valueColumn: "_value")
-        |> sort(columns: ["_time"], desc: true)
+        |> sort(columns: ["packet_size"], desc: true)
     '''
     df = query_api.query_data_frame(org=INFLUX_ORG, query=query)
     
